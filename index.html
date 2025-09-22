@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Harry Bonardo Situmorang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --cream: #FFF9F0;
+            --light-cream: #FFFBF5;
+            --dark-cream: #F5E6D3;
+            --brown: #8B4513;
+            --light-brown: #A67B5B;
+            --dark-brown: #5D4037;
+            --black: #2C2C2C;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--cream);
+            color: var(--black);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--dark-brown) 0%, var(--brown) 100%);
+            color: var(--white);
+            padding: 60px 0 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,218.7C672,224,768,160,864,138.7C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .profile-container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-img {
+            
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid var(--dark-cream);
+            margin: 0 auto 20px;
+            background: linear-gradient(45deg, var(--light-brown), var(--dark-brown));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: var(--cream);
+        }
+        
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header-content p {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            opacity: 0.9;
+        }
+        
+        /* Card Styles */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 50px 0;
+        }
+        
+        .card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--brown) 0%, var(--dark-brown) 100%);
+            color: var(--white);
+            padding: 20px;
+            position: relative;
+        }
+        
+        .card-header h2 {
+            font-size: 1.5rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-header h2 i {
+            margin-right: 10px;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .card-body h3 {
+            color: var(--dark-brown);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .card-body p {
+            margin-bottom: 15px;
+        }
+        
+        .card-body ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .card-body li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+        
+        .card-body li::before {
+            content: "•";
+            color: var(--brown);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .card-body ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .card-body ol li {
+            margin-bottom: 8px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-brown);
+            color: var(--cream);
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: var(--brown);
+            border-radius: 50%;
+            color: var(--cream);
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--cream);
+            color: var(--brown);
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2rem;
+            }
+            
+            .profile-img {
+                width: 120px;
+                height: 120px;
+                font-size: 50px;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .card {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        .card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+        
+        .card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+        
+        .card:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+        
+        .card:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+        
+        .card:nth-child(6) {
+            animation-delay: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile-container">
+                <img src="profile.jpg" alt="Foto Profil Harry Bonardo Situmorang" class="profile-img">
+                </div>
+                <div class="header-content">
+                    <h1>Harry Bonardo Situmorang</h1>
+                    <p>NPM: 2215061089</p>
+                    <p>Kelas: Kapita Selekta B</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+    <div class="card-grid">
+        <div class="card">
+            <div class="card-header">
+                <h2><i class="fas fa-book-open"></i> Pemahaman Fundamental Kapita Selekta</h2>
+            </div>
+            <div class="card-body">
+                <p><strong>Materi Kapita Selekta - Topik Terpilih Teknologi Informasi</strong></p>
+                <p>Kapita Selekta merupakan mata kuliah integratif yang mengeksplorasi isu-isu kontemporer dan strategis dalam domain teknologi informasi. Karakteristik utama mata kuliah ini adalah pendekatan multidisiplin yang menggabungkan perspektif teknis, bisnis, dan sosial untuk memahami dampak teknologi terhadap transformasi digital masyarakat modern.</p>
+                <p>Pembelajaran dalam Kapita Selekta dirancang untuk mengembangkan kemampuan analitis mahasiswa dalam mengidentifikasi tren teknologi emergent, mengevaluasi implikasi strategis dari adopsi teknologi, dan merancang solusi inovatif yang responsif terhadap kebutuhan industri. Pendekatan pedagogis yang diterapkan menekankan pembelajaran berbasis masalah (problem-based learning) dan studi kasus empiris.</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2><i class="fas fa-chart-line"></i> Perencanaan Strategis Bisnis: Analisis SWOT Komprehensif</h2>
+            </div>
+            <div class="card-body">
+                <p>Framework analisis SWOT (Strengths, Weaknesses, Opportunities, Threats) merupakan instrumen strategis untuk evaluasi posisi kompetitif dalam ekosistem teknologi informasi:</p>
+                <ul>
+                    <li><strong>Kekuatan Internal (Strengths):</strong>
+                        <ul>
+                            <li>Aksesibilitas terhadap infrastruktur teknologi cloud computing yang semakin terjangkau</li>
+                            <li>Ekosistem startup teknologi Indonesia yang berkembang pesat</li>
+                            <li>Kemampuan adaptasi generasi digital native terhadap inovasi teknologi</li>
+                            <li>Dukungan pemerintah melalui program digitalisasi nasional</li>
+                        </ul>
+                    </li>
+                    <li><strong>Kelemahan Internal (Weaknesses):</strong>
+                        <ul>
+                            <li>Gap antara kurikulum akademik dengan kebutuhan industri teknologi</li>
+                            <li>Keterbatasan infrastruktur internet di daerah rural</li>
+                            <li>Minimnya exposure terhadap best practices industri global</li>
+                            <li>Kekurangan mentor dan role model di bidang teknologi</li>
+                        </ul>
+                    </li>
+                    <li><strong>Peluang Eksternal (Opportunities):</strong>
+                        <ul>
+                            <li>Pertumbuhan ekonomi digital Indonesia yang mencapai triliunan rupiah</li>
+                            <li>Kebutuhan transformasi digital di sektor UMKM dan pemerintahan</li>
+                            <li>Emerging technologies seperti AI, blockchain, dan IoT yang membutuhkan talenta lokal</li>
+                            <li>Potensi ekspor layanan teknologi ke pasar regional ASEAN</li>
+                        </ul>
+                    </li>
+                    <li><strong>Ancaman Eksternal (Threats):</strong>
+                        <ul>
+                            <li>Kompetisi global dengan talenta teknologi dari negara maju</li>
+                            <li>Volatilitas pasar teknologi yang tinggi</li>
+                            <li>Risiko cybersecurity yang semakin kompleks</li>
+                            <li>Potensi disruption dari teknologi breakthrough yang tidak terprediksi</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2><i class="fas fa-globe"></i> Porter's Five Forces dalam Konteks Industri TI</h2>
+            </div>
+            <div class="card-body">
+                <p>Analisis Porter's Five Forces memberikan perspektif komprehensif tentang dinamika kompetitif dalam industri teknologi informasi:</p>
+                <ol>
+                    <li><strong>Intensitas Persaingan Antar Kompetitor Eksisting:</strong> Tingkat persaingan dalam industri TI tergolong sangat intensif, terutama di segmen aplikasi mobile, e-commerce, dan fintech. Diferensiasi produk dan inovasi berkelanjutan menjadi kunci survival dalam persaingan ini.</li>
+                    <li><strong>Ancaman Masuknya Kompetitor Baru:</strong> Barrier to entry yang relatif rendah dalam industri software development membuat ancaman new entrants sangat tinggi. Startup teknologi dapat dengan mudah memasuki pasar dengan modal minimal namun ide yang disruptif.</li>
+                    <li><strong>Kekuatan Tawar-Menawar Supplier:</strong> Dengan tersedianya berbagai platform cloud computing (AWS, Google Cloud, Azure) dan tools open source, kekuatan supplier relatif lemah. Switching cost yang rendah memberikan fleksibilitas bagi developer.</li>
+                    <li><strong>Kekuatan Tawar-Menawar Buyer:</strong> End users memiliki bargaining power yang sangat kuat karena abundance of choice dan low switching cost. User experience dan value proposition menjadi faktor kritis dalam retensi customer.</li>
+                    <li><strong>Ancaman Produk Substitusi:</strong> Tingkat substitution threat tergolong moderate hingga tinggi, terutama dengan munculnya teknologi no-code/low-code platforms yang memungkinkan non-technical users untuk mengembangkan aplikasi sederhana.</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2><i class="fas fa-network-wired"></i> Sepuluh Kekuatan Perata Global (The World is Flat)</h2>
+            </div>
+            <div class="card-body">
+                <p>Berdasarkan konsep Thomas L. Friedman, terdapat sepuluh kekuatan yang meratakan dunia dalam era globalisasi digital:</p>
+                <ol>
+                    <li>Keruntuhan Tembok Berlin (1989) - Simbolisasi terbukanya era baru kerjasama internasional</li>
+                    <li>Netscape IPO (1995) - Demokratisasi akses internet untuk massa</li>
+                    <li>Workflow Software - Standardisasi proses bisnis lintas organisasi</li>
+                    <li>Open Source Movement - Kolaborasi global dalam pengembangan software</li>
+                    <li>Outsourcing - Optimalisasi cost efficiency melalui global talent pool</li>
+                    <li>Offshoring - Relokasi operasional bisnis ke negara dengan competitive advantage</li>
+                    <li>Supply Chain Integration - Sinkronisasi real-time dalam global supply network</li>
+                    <li>Insourcing - Internalisasi fungsi logistik dan operasional</li>
+                    <li>In-forming - Empowerment individu melalui akses informasi universal</li>
+                    <li>Digital Convergence (The Steroids) - Konvergensi teknologi mobile, wireless, dan digital</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2><i class="fas fa-users"></i> Tiga Kekuatan Prioritas untuk Mahasiswa TI</h2>
+            </div>
+            <div class="card-body">
+                <p>Dari kesepuluh kekuatan tersebut, saya mengidentifikasi tiga yang paling strategis bagi pengembangan karir mahasiswa teknologi informasi:</p>
+                <ul>
+                    <li><strong>Open Source Movement:</strong> Partisipasi dalam ekosistem open source memberikan exposure terhadap coding standards internasional, networking dengan global developer community, dan portfolio building yang kredibel.</li>
+                    <li><strong>In-forming:</strong> Kemampuan untuk melakukan research, fact-checking, dan continuous learning secara mandiri menjadi competitive advantage dalam industri yang fast-paced ini.</li>
+                    <li><strong>Digital Convergence:</strong> Pemahaman tentang integrasi antara mobile computing, cloud services, dan emerging technologies seperti AI/ML menjadi essential skill untuk next-generation developers.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2><i class="fas fa-code-branch"></i> Filosofi Open Source: Paradigma Kolaboratif</h2>
+            </div>
+            <div class="card-body">
+                <p><strong>Fondasi Ideologis Open Source</strong></p>
+                <p>Filosofi open source berpijak pada prinsip-prinsip fundamental yang mentransformasi cara kita memandang intellectual property dan kolaborasi dalam pengembangan teknologi:</p>
+                <ul>
+                    <li><strong>Transparency (Transparansi):</strong>
+                        <ul>
+                            <li>Source code yang terbuka memungkinkan audit keamanan oleh komunitas global</li>
+                            <li>Proses development yang visible menciptakan accountability dan trust</li>
+                            <li>Dokumentasi yang comprehensive memfasilitasi knowledge transfer</li>
+                        </ul>
+                    </li>
+                    <li><strong>Collaboration (Kolaborasi):</strong>
+                        <ul>
+                            <li>Distributed development model yang memanfaatkan collective intelligence</li>
+                            <li>Peer review process yang meningkatkan kualitas kode</li>
+                            <li>Cross-cultural collaboration yang memperkaya perspektif dalam problem-solving</li>
+                        </ul>
+                    </li>
+                    <li><strong>Meritocracy (Meritokrasi):</strong>
+                        <ul>
+                            <li>Kontribusi dinilai berdasarkan kualitas dan impact, bukan status atau afiliasi</li>
+                            <li>Leadership dalam project open source earned through contribution</li>
+                            <li>Recognition system yang fair dan berbasis performa</li>
+                        </ul>
+                    </li>
+                    <li><strong>Freedom and Flexibility:</strong>
+                        <ul>
+                            <li>Kebebasan untuk modify, distribute, dan commercialize</li>
+                            <li>Adaptabilitas terhadap specific requirements dan use cases</li>
+                            <li>Elimination of vendor lock-in dan dependency issues</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2><i class="fas fa-lightbulb"></i> Implikasi Strategis Open Source & Komitmen Personal</h2>
+            </div>
+            <div class="card-body">
+                <p><strong>Implikasi Strategis Open Source</strong></p>
+                <p>Adopsi filosofi open source memberikan multiple benefits dalam konteks pengembangan karir dan bisnis:</p>
+                <ol>
+                    <li>Accelerated Innovation: Collective development menghasilkan innovation velocity yang lebih tinggi dibandingkan proprietary development</li>
+                    <li>Cost Optimization: Eliminasi licensing fees dan reduction in development overhead</li>
+                    <li>Risk Mitigation: Community-driven maintenance dan continuous security updates</li>
+                    <li>Talent Development: Hands-on experience dengan production-grade codebase dan industry best practices</li>
+                    <li>Network Effects: Building reputation dan professional network dalam global tech community</li>
+                </ol>
+                <p><strong>Komitmen Personal terhadap Open Source</strong></p>
+                <p>Sebagai mahasiswa teknologi informasi, komitmen saya terhadap open source philosophy tercermin dalam:</p>
+                <ul>
+                    <li><strong>Active Contribution:</strong> Kontribusi reguler pada GitHub projects dan participation dalam hackathons</li>
+                    <li><strong>Knowledge Sharing:</strong> Documentation, tutorial writing, dan mentoring junior developers</li>
+                    <li><strong>Community Building:</strong> Organizing local tech meetups dan open source advocacy</li>
+                    <li><strong>Ethical Technology:</strong> Prioritizing pada development of inclusive, accessible, dan socially beneficial technologies</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2><i class="fas fa-check-circle"></i> Kesimpulan</h2>
+            </div>
+            <div class="card-body">
+                <p>Kapita Selekta sebagai mata kuliah integratif memberikan framework komprehensif untuk memahami kompleksitas ekosistem teknologi informasi dalam konteks global. Melalui analisis strategis, pemahaman dinamika kompetitif, dan adopsi filosofi kolaboratif, mahasiswa dipersiapkan untuk menjadi technology leaders yang tidak hanya technically competent, tetapi juga strategically aware dan socially responsible.</p>
+                <p>Konvergensi antara business acumen, technical expertise, dan social consciousness menjadi karakteristik essential bagi next-generation IT professionals yang mampu navigate complexity dan drive positive impact dalam digital transformation era.</p>
+            </div>
+        </div>
+    </div>
+</main>
+    
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/harrybonardo/"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/harrybonardo"><i class="fab fa-github"></i></a>
+            </div>
+            <p>&copy; 2025 Harry Bonardo Situmorang - Kapita Selekta</p>
+        </div>
+    </footer>
+</body>
+</html>
